@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/dark_background"
+    android:id="@+id/album_fragment"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/CustomToolBarTheme"
+            app:toolbarId="@id/toolbar"
+            app:titleCollapseMode="scale"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|snap|enterAlwaysCollapsed">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/album_info_container"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:elevation="4dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_album_count_of_tracks"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@drawable/ic_name_album_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_album_count_of_tracks"
+                    app:layout_constraintStart_toEndOf="@id/iv_album_count_of_tracks"
+                    app:layout_constraintTop_toTopOf="@id/iv_album_count_of_tracks"
+                    android:layout_marginStart="4dp"
+                    android:theme="@style/ItemSongTextStyle"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_album_count_of_tracks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <ImageView
+                    android:id="@+id/iv_album_genre"
+                    app:layout_constraintStart_toStartOf="@id/iv_album_count_of_tracks"
+                    app:layout_constraintTop_toBottomOf="@id/iv_album_count_of_tracks"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/ic_genre_album_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_album_genre"
+                    app:layout_constraintStart_toEndOf="@id/iv_album_genre"
+                    app:layout_constraintTop_toTopOf="@id/iv_album_genre"
+                    android:layout_marginStart="4dp"
+                    android:theme="@style/ItemSongTextStyle"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_album_genre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:id="@+id/iv_album_price"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="@id/iv_album_genre"
+                    app:layout_constraintTop_toBottomOf="@id/iv_album_genre"
+                    android:background="@drawable/ic_price_album_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_album_price"
+                    app:layout_constraintStart_toEndOf="@id/iv_album_price"
+                    app:layout_constraintTop_toTopOf="@id/iv_album_price"
+                    android:layout_marginStart="4dp"
+                    android:theme="@style/ItemSongTextStyle"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_album_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <ImageView
+                    android:id="@+id/iv_second_album_price"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/ic_price_album_icon"
+                    android:layout_width="24dp"
+                    app:layout_constraintTop_toBottomOf="@id/iv_album_price"
+                    app:layout_constraintStart_toStartOf="@id/iv_album_genre"
+                    android:layout_height="24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_second_album_price"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintTop_toTopOf="@id/iv_second_album_price"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_second_album_price"
+                    app:layout_constraintStart_toEndOf="@id/iv_second_album_price"
+                    android:theme="@style/ItemSongTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/iv_album_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_view_description"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:title="Name of Album"
+                app:titleTextColor="@color/white"
+                android:layout_width="match_parent"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:indicatorColor="@color/purple_200"
+        android:theme="@style/ProgressBarStyle"
+        android:layout_gravity="center"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="92dp"
+        android:layout_height="92dp"/>
+
+    <TextView
+        android:id="@+id/tv_empty_list_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:lineSpacingExtra="8dp"
+        android:layout_gravity="center"
+        android:text="@string/details_empty_list_hint"
+        android:textAlignment="center"
+        android:textColor="@color/light_grey"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_artist_songs"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="12dp"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
